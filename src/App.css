@@ -20,6 +20,7 @@
   text-align: center;
   width: 200px;
   padding: 20px 20px 0 20px;
+
 }
 
 .label {
@@ -50,7 +51,7 @@
   display: flex;
   padding: 10px;
   margin: 1px;
-  border: 1px solid blue;
+  border: 1px solid yellowgreen;
 }
 
 .cellContainerLive {
