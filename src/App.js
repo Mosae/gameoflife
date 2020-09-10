@@ -2,22 +2,22 @@ import React, { useRef, useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
-  //instance of - check prev value
-// 	//uses .current to give the latest value
+	//instance of - check prev value
+	// 	//uses .current to give the latest value
 	const canvas = useRef();
 	const currentSq = useRef();
 	const running = useRef();
-//Set the game state
+	//Set the game state
 	const [square, setSquare] = useState([]);
 	const [square2, setSquare2] = useState([]);
 	const [rows, setRows] = useState(25);
 	const [columns, setColumns] = useState(25);
 	const [generation, setGeneration] = useState(0);
 	const [gameSpeed, setGameSpeed] = useState(0);
-// draw 2d canvas
+	// draw 2d canvas
 	const drawBox = (blocks) => {
 		const context = canvas.current.getContext('2d');
-//loop through to make canvas
+		//loop through to make canvas
 		for (let i = 0; i < rows; i++) {
 			for (let h = 0; h < columns; h++) {
 				if (blocks[i][h].alive) {
@@ -48,20 +48,20 @@ function App() {
 	const click = (either) => {
 		if (running.current) {
 			return;
-    }
-    //this will draw the block onto the canvas when clicked
+		}
+		//this will draw the block onto the canvas when clicked
 		let x = Math.floor((either.clientX - either.currentTarget.offsetLeft) / 10);
 		let y = Math.floor((either.clientY - either.currentTarget.offsetTop) / 10);
 
-    //toggle on dead and alive
+		//toggle on dead and alive
 		square[x][y].alive = !square[x][y].alive;
 		drawBox(square);
 	};
 
 	const gameOfLife = () => {
 		let gameBlock = square;
-    let nextBlock = square2;
-    //incorporate the rules
+		let nextBlock = square2;
+		//incorporate the rules
 		if (currentSq.current === '2') {
 			gameBlock = square2;
 			nextBlock = square;
@@ -75,17 +75,17 @@ function App() {
 							continue;
 						}
 						try {
-              //if the square is alive we increase
+							//if the square is alive we increase
 							if (gameBlock[j][k] && gameBlock[j][k].alive) {
 								liveBlocks++;
 							}
 						} catch (e) {
-              console.log(e)
-            }
+							console.log(e);
+						}
 					}
 				}
 				if (gameBlock[i][h].alive) {
-          //if the neighbour has less than 2 or more than 3 = dead
+					//if the neighbour has less than 2 or more than 3 = dead
 					if (liveBlocks < 2 || liveBlocks > 3) {
 						nextBlock[i][h].alive = false;
 					} else {
@@ -105,15 +105,15 @@ function App() {
 			currentSq.current = '1';
 		} else {
 			currentSq.current = '2';
-    }
-    //if the game is running, we are gonna animate
+		}
+		//if the game is running, we are gonna animate
 		if (running.current) {
 			window.setTimeout(() => {
 				requestAnimationFrame(gameOfLife);
 			}, gameSpeed);
 		}
 		setGeneration((generation) => {
-			return generation + 1
+			return generation + 1;
 		});
 	};
 	const changeBoard = (e) => {
@@ -166,7 +166,7 @@ function App() {
 			<header className="headerContainer">
 				<h1>Game of Life!</h1>
 				<br />
-				<div className="headerInnerContaine">
+				<div className="headerInnerContainer">
 					<label className="label">
 						<strong>These are the rules</strong>
 						<br />
@@ -190,8 +190,6 @@ function App() {
 							Any dead cell with exactly three live neighbours becomes a live
 							cell, as if by reproduction.
 						</li>
-						
-						
 					</label>
 					<label className="board">
 						Rows:
@@ -209,16 +207,19 @@ function App() {
 							<option value={20}>Fast</option>
 						</select>
 					</div>
-          Generation: {generation}
+					Generation: {generation}
 					<div className="headerButtons">
-						
 						<button onClick={randomizeBoard}>Randomize Board</button>
-						<button className='start' onClick={startGame}>Start</button>
-						<button className='stop' onClick={stopGame}>Stop</button>
-						<button className='reset'onClick={clearBoard}>Reset</button>
-            
+						<button className="start" onClick={startGame}>
+							Start
+						</button>
+						<button className="stop" onClick={stopGame}>
+							Stop
+						</button>
+						<button className="reset" onClick={clearBoard}>
+							Reset
+						</button>
 					</div>
-				
 					<canvas
 						onClick={click}
 						ref={canvas}
@@ -232,4 +233,3 @@ function App() {
 }
 
 export default App;
-

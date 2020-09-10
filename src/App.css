@@ -1,78 +1,86 @@
 .worldContainer {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  background-color: gainsboro
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	background-color: gainsboro;
+	text-align: center;
 }
 
-
 .headerContainer {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  flex: 1;
-  background-color: rgb(183, 219, 110);
-  padding-bottom: 5px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	flex: 1;
+	background-color: rgb(183, 219, 110);
+	padding-bottom: 5px;
 }
 
 .submit {
-  width: 50%;
-  margin: 5px;
+	width: 50%;
+	margin: 5px;
 }
 
 .headerInnerContainer {
-  display: flex;
-  text-align: center;
-  /* width: 10px; */
-  padding: 20px 20px 0 20px;
-
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .label {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  margin-bottom: 16px; 
-   margin-right: 10px;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	margin-bottom: 10px;
+	margin-right: 30px;
+	margin-left: 30px;
 }
 
 .input {
-  margin: 2px;
-  padding-bottom: 5%; 
+	margin: 10px;
+	padding-bottom: 20%;
 }
 
 .boardContainer {
-  display: flex;
-  flex: 1;
-  justify-content: center;
-  margin: 30px;
-  padding: 0 60px;
+	/* display: flex; */
+	flex: 1;
+	justify-content: center;
+	margin: 30px;
+	padding: 60px;
 }
-
+.board {
+	padding: 10%;
+}
+.Row {
+	padding: 2%;
+}
 .headerButtons {
-  display: flex;
-  justify-content: space-between;
-  width: 50%;
-  padding: 0 20px 20px;
+	/* display: flex;
+	justify-content: space-between;
+	width: 50%;
+  padding: 20px; */
+	margin: 3%;
 }
 .start {
-  background-color: green;
-  color: azure;
+	background-color: green;
+	color: azure;
+	margin: inherit;
 }
 .stop {
-  background-color: red;
-  color: azure;
+	background-color: red;
+	color: azure;
+	margin: inherit;
 }
 .reset {
-  background-color: chartreuse;
-  color: black;
+	background-color: chartreuse;
+	color: black;
+	margin: inherit;
 }
 
 li {
-  margin-left: 10px; 
-  padding-bottom: 3%;
+	margin-left: 10px;
+	padding-bottom: 3%;
 }
 canvas {
-  display: flex;
-  align-content: center
+	display: flex;
+	/* align-content: center; */
 }
