@@ -1,5 +1,16 @@
 import React, { useRef, useEffect, useState } from 'react';
-import './App.css';
+// import './App.css';
+import 'sriracha-ui/css/main.css';
+import {
+	Wrapper,
+	AppWrapper,
+	Flex,
+	Box,
+	Card,
+	Input,
+	Button,
+	theme,
+} from 'sriracha-ui';
 
 function App() {
 	//instance of - check prev value
@@ -163,73 +174,97 @@ function App() {
 	};
 
 	return (
-		<div className="worldContainer">
-			<header className="headerContainer">
-				<h1>Game of Life!</h1>
-				<br />
-				<div className="headerInnerContainer">
-					<label className="label">
-						<strong>These are the rules</strong>
-						<br />
-						<li>
-							{' '}
-							Any live cell with fewer than two live neighbours dies, as if by
-							underpopulation.{' '}
-						</li>
-						<li>
-							{' '}
-							Any live cell with two or three live neighbours lives on to the
-							next generation.{' '}
-						</li>
-						<li>
-							{' '}
-							Any live cell with more than three live neighbours dies, as if by
-							overpopulation.{' '}
-						</li>
-						<li>
-							{' '}
-							Any dead cell with exactly three live neighbours becomes a live
-							cell, as if by reproduction.
-						</li>
-					</label>
-					<label className="board">
-						Rows:
-						<input name={'rows'} value={rows} onChange={changeBoard} />
-					</label>
-					<label className="board">
-						Columns:
-						<input name={'col'} value={columns} onChange={changeBoard} />
-					</label>
-					<div className={'Row'}>
-						<label className="label">Game Speed:</label>
-						<select className="speeds" value={gameSpeed} onChange={speed}>
-							<option value={1000}>Slow</option>
-							<option value={400}>Normal</option>
-							<option value={20}>Fast</option>
-						</select>
-					</div>
-					Generation: {generation}
-					<div className="headerButtons">
-						<button onClick={randomizeBoard}>Randomize Board</button>
-						<button className="start" onClick={startGame}>
-							Start
-						</button>
-						<button className="stop" onClick={stopGame}>
-							Stop
-						</button>
-						<button className="reset" onClick={clearBoard}>
-							Reset
-						</button>
-					</div>
-					<canvas
-						onClick={click}
-						ref={canvas}
-						width={columns * 10 + 'px'}
-						height={rows * 10 + 'px'}
-					/>
-				</div>
-			</header>
-		</div>
+		<AppWrapper bg={theme.colors.green3}>
+			<Wrapper>
+				<Flex as="header" drape h="100vh">
+					<h1>Game of Life!</h1>
+					<br />
+					<Flex col aiCenter jcAround>
+						<label>
+							<strong>These are the rules</strong>
+							<Box h="2rem" />
+							<li>
+								{' '}
+								Any live cell with fewer than two live neighbours dies, as if by
+								underpopulation.{' '}
+							</li>
+							<li>
+								{' '}
+								Any live cell with two or three live neighbours lives on to the
+								next generation.{' '}
+							</li>
+							<li>
+								{' '}
+								Any live cell with more than three live neighbours dies, as if
+								by overpopulation.{' '}
+							</li>
+							<li>
+								{' '}
+								Any dead cell with exactly three live neighbours becomes a live
+								cell, as if by reproduction.
+							</li>
+						</label>
+						<Card w="30rem" radius="0.3rem" shade invert>
+							<Flex
+								as="label"
+								m="2rem 0"
+								h="3rem"
+								visible
+								aiCenter
+								stretch
+								jcBetween>
+								Rows:
+								<Input name={'rows'} value={rows} onChange={changeBoard} />
+							</Flex>
+							<Flex
+								as="label"
+								m="2rem 0"
+								h="3rem"
+								visible
+								aiCenter
+								stretch
+								jcBetween>
+								Columns:
+								<Input name={'col'} value={columns} onChange={changeBoard} />
+							</Flex>
+							<div>
+								<label>Game Speed:</label>
+								<Box h="2rem" />
+								<select value={gameSpeed} onChange={speed}>
+									<option value={1000}>Slow</option>
+									<option value={400}>Normal</option>
+									<option value={20}>Fast</option>
+								</select>
+							</div>
+						</Card>
+						<Box h="2rem" />
+						Generation: {generation}
+						<Box h="2rem" />
+						<Flex drape>
+							<Button sink blue col rounded onClick={randomizeBoard}>
+								<Box sqr="3rem" bg={theme.colors.red5} star /> Randomize Board
+							</Button>
+							<Button green sink rounded onClick={startGame}>
+								<Box sqr="3rem" bg={theme.colors.red5} chevronRight />
+								Start
+							</Button>
+							<Button red sink rounded onClick={stopGame}>
+								Stop
+							</Button>
+							<Button amber rounded sink onClick={clearBoard}>
+								Reset
+							</Button>
+						</Flex>
+						<canvas
+							onClick={click}
+							ref={canvas}
+							width={columns * 10 + 'px'}
+							height={rows * 10 + 'px'}
+						/>
+					</Flex>
+				</Flex>
+			</Wrapper>
+		</AppWrapper>
 	);
 }
 
