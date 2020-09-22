@@ -5,6 +5,7 @@ import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import StopIcon from '@material-ui/icons/Stop';
 import RestoreIcon from '@material-ui/icons/Restore';
 import StickyFooter from './footer';
+import BasicTextFields from './textField';
 function App() {
 	//instance of - check prev value
 	// 	//uses .current to give the latest value
