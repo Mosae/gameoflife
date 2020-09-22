@@ -72,5 +72,6 @@ li {
 }
 canvas {
 	display: flex;
-	align-content: center;
+	margin: auto;
+	/* align-content: center; */
 }
