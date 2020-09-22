@@ -1,10 +1,10 @@
 import React, { useRef, useEffect, useState } from 'react';
 import './App.css';
 import Button from '@material-ui/core/Button';
-import { Icon } from '@material-ui/core';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import StopIcon from '@material-ui/icons/Stop';
 import RestoreIcon from '@material-ui/icons/Restore';
+import StickyFooter from './footer';
 function App() {
 	//instance of - check prev value
 	// 	//uses .current to give the latest value
@@ -195,14 +195,17 @@ function App() {
 							cell, as if by reproduction.
 						</li>
 					</label>
-					<label className="board">
-						Rows:
-						<input name={'rows'} value={rows} onChange={changeBoard} />
-					</label>
-					<label className="board">
-						Columns:
-						<input name={'col'} value={columns} onChange={changeBoard} />
-					</label>
+					<div className="board">
+						<label className="boards">
+							Rows:
+							<input name={'rows'} value={rows} onChange={changeBoard} />
+						</label>
+						<br />
+						<label className="boards">
+							Columns:
+							<input name={'col'} value={columns} onChange={changeBoard} />
+						</label>
+					</div>
 					<div className={'Row'}>
 						<label className="label">Game Speed:</label>
 						<select className="speeds" value={gameSpeed} onChange={speed}>
@@ -211,9 +214,11 @@ function App() {
 							<option value={20}>Fast</option>
 						</select>
 					</div>
-					Generation: {generation}
+					<h3>Generation: {generation}</h3>
 					<div className="headerButtons">
-						<button onClick={randomizeBoard}>Randomize Board</button>
+						<Button variant="contained" onClick={randomizeBoard}>
+							Randomize Board
+						</Button>
 						<Button
 							variant="contained"
 							color="primary"
@@ -246,6 +251,7 @@ function App() {
 					/>
 				</div>
 			</header>
+			<StickyFooter />
 		</div>
 	);
 }

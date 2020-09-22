@@ -24,7 +24,6 @@
 	flex-wrap: wrap;
 	flex-direction: column;
 	margin-bottom: 16px;
-	margin-right: 10px;
 }
 
 /* .input {
@@ -40,6 +39,11 @@
 	padding: 0 60px;
 	background-color: aqua;
 } */
+.Row {
+	display: flex;
+	justify-content: center;
+	margin: 5%;
+}
 
 .headerButtons {
 	display: flex;
@@ -59,7 +63,10 @@
   background-color: chartreuse;
   color: black;
 } */
-
+.board {
+	background-color: blue;
+	width: auto;
+}
 label {
 	display: flex;
 	justify-content: space-evenly;
@@ -70,9 +77,14 @@ li {
 }
 canvas {
 	display: flex;
-	align-items: center;
+	margin: auto;
 }
 Button {
 	display: flex;
 	justify-content: space-around;
+}
+footer,
+strong,
+h3 {
+	text-align: center;
 }
