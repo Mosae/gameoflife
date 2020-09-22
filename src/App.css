@@ -1,86 +1,117 @@
-.worldContainer {
-	display: flex;
-	flex-direction: column;
-	flex: 1;
-	background-color: gainsboro;
-	text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+:root {
+	--gradient1: linear-gradient(90deg, #ee6352, purple, #ee6352);
+	--gradient2: linear-gradient(
+		90deg,
+		#4e89ae,
+		#43658b,
+		#ed6663,
+		#ed6663,
+		#ffc75f,
+		#f9f871
+	);
+	--gradient3: linear-gradient(45deg, #ffa000, #24c168);
+}
+
+@keyframes bg-animation {
+	0% {
+		background-position: 0% 87%;
+	}
+	50% {
+		background-position: 100% 14%;
+	}
+	100% {
+		background-position: 0% 87%;
+	}
 }
 
 .headerContainer {
+	background-image: var(--gradient2);
+	background-size: 300%;
+	background-position: left;
+	animation: bg-animation 60s infinite;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
 	flex: 1;
-	background-color: rgb(183, 219, 110);
 	padding-bottom: 5px;
 }
 
 .submit {
-	width: 50%;
+	width: 100%;
 	margin: 5px;
-}
-
-.headerInnerContainer {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
 }
 
 .label {
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: column;
-	margin-bottom: 10px;
-	margin-right: 30px;
-	margin-left: 30px;
-}
-
-.input {
-	margin: 10px;
-	padding-bottom: 20%;
-}
-
-.boardContainer {
-	/* display: flex; */
-	flex: 1;
-	justify-content: center;
-	margin: 30px;
-	padding: 60px;
-}
-.board {
-	padding: 10%;
+	margin-bottom: 16px;
+	margin-right: 10px;
 }
 .Row {
-	padding: 2%;
+	display: flex;
+	align-items: baseline;
+	justify-content: center;
+	margin: 5px;
 }
-.headerButtons {
-	/* display: flex;
-	justify-content: space-between;
-	width: 50%;
-  padding: 20px; */
-	margin: 3%;
+.generation {
+	text-align: center;
 }
-.start {
-	background-color: green;
-	color: azure;
-	margin: inherit;
-}
-.stop {
-	background-color: red;
-	color: azure;
-	margin: inherit;
-}
-.reset {
-	background-color: chartreuse;
-	color: black;
-	margin: inherit;
+.speeds {
+	margin-left: 12px;
 }
 
+/* .input {
+  margin: 6px;
+  padding-bottom: 5%;
+} */
+
+/* .boardContainer {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  margin: 30px;
+  padding: 0 60px;
+  background-color: aqua;
+} */
+
+.headerButtons {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	padding: 0 20px 20px;
+}
+/* .start {
+  background-color: green;
+  color: azure;
+}
+.stop {
+  background-color: red;
+  color: azure;
+}
+.reset {
+  background-color: chartreuse;
+  color: black;
+} */
+
+label {
+	display: flex;
+	justify-content: space-evenly;
+}
 li {
 	margin-left: 10px;
 	padding-bottom: 3%;
 }
 canvas {
 	display: flex;
-	/* align-content: center; */
+	align-items: center;
+	margin: auto;
+}
+Button {
+	display: flex;
+	justify-content: space-around;
+}
+#col {
+	margin-left: -3.5%;
 }

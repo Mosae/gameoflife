@@ -1,20 +1,12 @@
 import React, { useRef, useEffect, useState } from 'react';
-// import './App.css';
-import 'sriracha-ui/css/main.css';
-import {
-	Wrapper,
-	AppWrapper,
-	Flex,
-	Box,
-	Card,
-	Input,
-	Button,
-	theme,
-} from 'sriracha-ui';
-
+import './App.css';
+import Button from '@material-ui/core/Button';
+import PlayArrowIcon from '@material-ui/icons/PlayArrow';
+import StopIcon from '@material-ui/icons/Stop';
+import RestoreIcon from '@material-ui/icons/Restore';
 function App() {
 	//instance of - check prev value
-	// 	//uses .current to give the latest value
+	//  //uses .current to give the latest value
 	const canvas = useRef();
 	const currentSq = useRef();
 	const running = useRef();
@@ -62,10 +54,9 @@ function App() {
 		}
 		//this will draw the block onto the canvas when clicked
 		let x = Math.floor((either.clientX - either.currentTarget.offsetLeft) / 10);
-		let y = Math.floor((either.clientY - either.currentTarget.offsetTop) / -35);
+		let y = Math.floor((either.clientY - either.currentTarget.offsetTop) / 10);
 
 		//toggle on dead and alive
-		console.log('x and y', x, y, square);
 		square[x][y].alive = !square[x][y].alive;
 		drawBox(square);
 	};
@@ -174,97 +165,95 @@ function App() {
 	};
 
 	return (
-		<AppWrapper bg={theme.colors.green3}>
-			<Wrapper>
-				<Flex as="header" drape h="100vh">
-					<h1>Game of Life!</h1>
-					<br />
-					<Flex col aiCenter jcAround>
-						<label>
-							<strong>These are the rules</strong>
-							<Box h="2rem" />
-							<li>
-								{' '}
-								Any live cell with fewer than two live neighbours dies, as if by
-								underpopulation.{' '}
-							</li>
-							<li>
-								{' '}
-								Any live cell with two or three live neighbours lives on to the
-								next generation.{' '}
-							</li>
-							<li>
-								{' '}
-								Any live cell with more than three live neighbours dies, as if
-								by overpopulation.{' '}
-							</li>
-							<li>
-								{' '}
-								Any dead cell with exactly three live neighbours becomes a live
-								cell, as if by reproduction.
-							</li>
-						</label>
-						<Card w="30rem" radius="0.3rem" shade invert>
-							<Flex
-								as="label"
-								m="2rem 0"
-								h="3rem"
-								visible
-								aiCenter
-								stretch
-								jcBetween>
-								Rows:
-								<Input name={'rows'} value={rows} onChange={changeBoard} />
-							</Flex>
-							<Flex
-								as="label"
-								m="2rem 0"
-								h="3rem"
-								visible
-								aiCenter
-								stretch
-								jcBetween>
-								Columns:
-								<Input name={'col'} value={columns} onChange={changeBoard} />
-							</Flex>
-							<div>
-								<label>Game Speed:</label>
-								<Box h="2rem" />
-								<select value={gameSpeed} onChange={speed}>
-									<option value={1000}>Slow</option>
-									<option value={400}>Normal</option>
-									<option value={20}>Fast</option>
-								</select>
-							</div>
-						</Card>
-						<Box h="2rem" />
-						Generation: {generation}
-						<Box h="2rem" />
-						<Flex drape>
-							<Button sink blue col rounded onClick={randomizeBoard}>
-								<Box sqr="3rem" bg={theme.colors.red5} star /> Randomize Board
-							</Button>
-							<Button green sink rounded onClick={startGame}>
-								<Box sqr="3rem" bg={theme.colors.red5} chevronRight />
-								Start
-							</Button>
-							<Button red sink rounded onClick={stopGame}>
-								Stop
-							</Button>
-							<Button amber rounded sink onClick={clearBoard}>
-								Reset
-							</Button>
-						</Flex>
-						<canvas
-							onClick={click}
-							ref={canvas}
-							width={columns * 10 + 'px'}
-							height={rows * 10 + 'px'}
+		<div className="worldContainer">
+			<header className="headerContainer">
+				<h1>Game of Life!</h1>
+				<br />
+				<div className="headerInnerContaine">
+					<label className="label">
+						<strong>These are the rules</strong>
+						<br />
+						<li>
+							{' '}
+							Any live cell with fewer than two live neighbours dies, as if by
+							underpopulation.{' '}
+						</li>
+						<li>
+							{' '}
+							Any live cell with two or three live neighbours lives on to the
+							next generation.{' '}
+						</li>
+						<li>
+							{' '}
+							Any live cell with more than three live neighbours dies, as if by
+							overpopulation.{' '}
+						</li>
+						<li>
+							{' '}
+							Any dead cell with exactly three live neighbours becomes a live
+							cell, as if by reproduction.
+						</li>
+					</label>
+					<div className={'Row'}>
+						<label className="label">Game Speed:</label>
+						<select className="speeds" value={gameSpeed} onChange={speed}>
+							<option value={1000}>Slow</option>
+							<option value={400}>Normal</option>
+							<option value={20}>Fast</option>
+						</select>
+					</div>
+					<label className="board">
+						Rows:
+						<input name={'rows'} value={rows} onChange={changeBoard} />
+					</label>
+					<label className="board">
+						Columns:
+						<input
+							id="col"
+							name={'col'}
+							value={columns}
+							onChange={changeBoard}
 						/>
-					</Flex>
-				</Flex>
-			</Wrapper>
-		</AppWrapper>
+					</label>
+					<div className="generation">Generation: {generation}</div>
+					<div className="headerButtons">
+						<Button variant="contained" onClick={randomizeBoard}>
+							Randomize Board
+						</Button>
+
+						<Button
+							variant="contained"
+							color="primary"
+							endIcon={<PlayArrowIcon />}
+							className="start"
+							onClick={startGame}>
+							Start
+						</Button>
+						<Button
+							variant="contained"
+							color="secondary"
+							className="stop"
+							startIcon={<StopIcon />}
+							onClick={stopGame}>
+							Stop
+						</Button>
+						<Button
+							variant="contained"
+							endIcon={<RestoreIcon />}
+							className="reset"
+							onClick={clearBoard}>
+							Reset
+						</Button>
+					</div>
+					<canvas
+						onClick={click}
+						ref={canvas}
+						width={columns * 10 + 'px'}
+						height={rows * 10 + 'px'}
+					/>
+				</div>
+			</header>
+		</div>
 	);
 }
 
