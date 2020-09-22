@@ -1,9 +1,3 @@
-/* .worldContainer {
-	display: flex;
-	flex-direction: column;
-	flex: 2;
-	background-color: red;
-} */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 :root {
 	--gradient1: linear-gradient(90deg, #ee6352, purple, #ee6352);
@@ -69,17 +63,17 @@
 }
 
 /* .input {
-	margin: 6px;
-	padding-bottom: 5%;
+  margin: 6px;
+  padding-bottom: 5%;
 } */
 
 /* .boardContainer {
-	display: flex;
-	flex: 1;
-	justify-content: center;
-	margin: 30px;
-	padding: 0 60px;
-	background-color: aqua;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  margin: 30px;
+  padding: 0 60px;
+  background-color: aqua;
 } */
 
 .headerButtons {

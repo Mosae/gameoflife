@@ -6,7 +6,7 @@ import StopIcon from '@material-ui/icons/Stop';
 import RestoreIcon from '@material-ui/icons/Restore';
 function App() {
 	//instance of - check prev value
-	// 	//uses .current to give the latest value
+	//  //uses .current to give the latest value
 	const canvas = useRef();
 	const currentSq = useRef();
 	const running = useRef();
