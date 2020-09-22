@@ -26,6 +26,14 @@
 	margin-bottom: 16px;
 	margin-right: 10px;
 }
+.Row {
+	display: flex;
+	justify-content: center;
+	margin: 5px;
+}
+.generation {
+	text-align: center;
+}
 
 /* .input {
 	margin: 6px;
@@ -71,8 +79,12 @@ li {
 canvas {
 	display: flex;
 	align-items: center;
+	margin: auto;
 }
 Button {
 	display: flex;
 	justify-content: space-around;
+}
+#col {
+	margin-left: -3.5%;
 }

@@ -1,7 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import './App.css';
 import Button from '@material-ui/core/Button';
-import { Icon } from '@material-ui/core';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import StopIcon from '@material-ui/icons/Stop';
 import RestoreIcon from '@material-ui/icons/Restore';
@@ -195,14 +194,6 @@ function App() {
 							cell, as if by reproduction.
 						</li>
 					</label>
-					<label className="board">
-						Rows:
-						<input name={'rows'} value={rows} onChange={changeBoard} />
-					</label>
-					<label className="board">
-						Columns:
-						<input name={'col'} value={columns} onChange={changeBoard} />
-					</label>
 					<div className={'Row'}>
 						<label className="label">Game Speed:</label>
 						<select className="speeds" value={gameSpeed} onChange={speed}>
@@ -211,7 +202,20 @@ function App() {
 							<option value={20}>Fast</option>
 						</select>
 					</div>
-					Generation: {generation}
+					<label className="board">
+						Rows:
+						<input name={'rows'} value={rows} onChange={changeBoard} />
+					</label>
+					<label className="board">
+						Columns:
+						<input
+							id="col"
+							name={'col'}
+							value={columns}
+							onChange={changeBoard}
+						/>
+					</label>
+					<div className="generation">Generation: {generation}</div>
 					<div className="headerButtons">
 						<button onClick={randomizeBoard}>Randomize Board</button>
 						<Button
