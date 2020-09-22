@@ -56,9 +56,10 @@ function App() {
 		}
 		//this will draw the block onto the canvas when clicked
 		let x = Math.floor((either.clientX - either.currentTarget.offsetLeft) / 10);
-		let y = Math.floor((either.clientY - either.currentTarget.offsetTop) / 10);
+		let y = Math.floor((either.clientY - either.currentTarget.offsetTop) / -10);
 
 		//toggle on dead and alive
+		console.log('x and y', x, y, square);
 		square[x][y].alive = !square[x][y].alive;
 		drawBox(square);
 	};
