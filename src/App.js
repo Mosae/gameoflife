@@ -1,11 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import './App.css';
-import Button from '@material-ui/core/Button';
-import PlayArrowIcon from '@material-ui/icons/PlayArrow';
-import StopIcon from '@material-ui/icons/Stop';
-import RestoreIcon from '@material-ui/icons/Restore';
-import StickyFooter from './footer';
-import BasicTextFields from './textField';
+
 function App() {
 	//instance of - check prev value
 	// 	//uses .current to give the latest value
@@ -56,10 +51,9 @@ function App() {
 		}
 		//this will draw the block onto the canvas when clicked
 		let x = Math.floor((either.clientX - either.currentTarget.offsetLeft) / 10);
-		let y = Math.floor((either.clientY - either.currentTarget.offsetTop) / -10);
+		let y = Math.floor((either.clientY - either.currentTarget.offsetTop) / 10);
 
 		//toggle on dead and alive
-		console.log('x and y', x, y, square);
 		square[x][y].alive = !square[x][y].alive;
 		drawBox(square);
 	};
@@ -197,17 +191,14 @@ function App() {
 							cell, as if by reproduction.
 						</li>
 					</label>
-					<div className="board">
-						<label className="boards">
-							Rows:
-							<input name={'rows'} value={rows} onChange={changeBoard} />
-						</label>
-						<br />
-						<label className="boards">
-							Columns:
-							<input name={'col'} value={columns} onChange={changeBoard} />
-						</label>
-					</div>
+					<label className="board">
+						Rows:
+						<input name={'rows'} value={rows} onChange={changeBoard} />
+					</label>
+					<label className="board">
+						Columns:
+						<input name={'col'} value={columns} onChange={changeBoard} />
+					</label>
 					<div className={'Row'}>
 						<label className="label">Game Speed:</label>
 						<select className="speeds" value={gameSpeed} onChange={speed}>
@@ -216,34 +207,18 @@ function App() {
 							<option value={20}>Fast</option>
 						</select>
 					</div>
-					<h3>Generation: {generation}</h3>
+					Generation: {generation}
 					<div className="headerButtons">
-						<Button variant="contained" onClick={randomizeBoard}>
-							Randomize Board
-						</Button>
-						<Button
-							variant="contained"
-							color="primary"
-							endIcon={<PlayArrowIcon />}
-							className="start"
-							onClick={startGame}>
+						<button onClick={randomizeBoard}>Randomize Board</button>
+						<button className="start" onClick={startGame}>
 							Start
-						</Button>
-						<Button
-							variant="contained"
-							color="secondary"
-							className="stop"
-							startIcon={<StopIcon />}
-							onClick={stopGame}>
+						</button>
+						<button className="stop" onClick={stopGame}>
 							Stop
-						</Button>
-						<Button
-							variant="contained"
-							endIcon={<RestoreIcon />}
-							className="reset"
-							onClick={clearBoard}>
+						</button>
+						<button className="reset" onClick={clearBoard}>
 							Reset
-						</Button>
+						</button>
 					</div>
 					<canvas
 						onClick={click}
@@ -253,7 +228,6 @@ function App() {
 					/>
 				</div>
 			</header>
-			<StickyFooter />
 		</div>
 	);
 }
