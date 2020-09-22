@@ -217,7 +217,10 @@ function App() {
 					</label>
 					<div className="generation">Generation: {generation}</div>
 					<div className="headerButtons">
-						<button onClick={randomizeBoard}>Randomize Board</button>
+						<Button variant="contained" onClick={randomizeBoard}>
+							Randomize Board
+						</Button>
+
 						<Button
 							variant="contained"
 							color="primary"

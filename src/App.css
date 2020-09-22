@@ -4,13 +4,42 @@
 	flex: 2;
 	background-color: red;
 } */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+:root {
+	--gradient1: linear-gradient(90deg, #ee6352, purple, #ee6352);
+	--gradient2: linear-gradient(
+		90deg,
+		#4e89ae,
+		#43658b,
+		#ed6663,
+		#ed6663,
+		#ffc75f,
+		#f9f871
+	);
+	--gradient3: linear-gradient(45deg, #ffa000, #24c168);
+}
+
+@keyframes bg-animation {
+	0% {
+		background-position: 0% 87%;
+	}
+	50% {
+		background-position: 100% 14%;
+	}
+	100% {
+		background-position: 0% 87%;
+	}
+}
 
 .headerContainer {
+	background-image: var(--gradient2);
+	background-size: 300%;
+	background-position: left;
+	animation: bg-animation 60s infinite;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
 	flex: 1;
-	background-color: rgb(183, 219, 110);
 	padding-bottom: 5px;
 }
 
@@ -28,11 +57,15 @@
 }
 .Row {
 	display: flex;
+	align-items: baseline;
 	justify-content: center;
 	margin: 5px;
 }
 .generation {
 	text-align: center;
+}
+.speeds {
+	margin-left: 12px;
 }
 
 /* .input {
